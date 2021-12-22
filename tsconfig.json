@@ -21,7 +21,11 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@apply-chance/share":["src/app/shared/index.ts"],
+      "@apply-chance/core":["src/app/core/index.ts"]
+  }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
