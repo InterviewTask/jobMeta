@@ -8,6 +8,7 @@ import { ApplicantNavLayoutComponent } from './layout/applicant-nav-layout/appli
 import { SharedModule } from '@job-mata/share';
 import { ApplicantListComponent, ApplicantNewComponent, ApplicantSearchComponent } from './components';
 import { ApplicantListItemComponent } from './components/applicant-list-item/applicant-list-item.component';
+import { ApplicantService } from './services';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { ApplicantListItemComponent } from './components/applicant-list-item/app
     CommonModule,
     ApplicantRoutingModule,
     SharedModule
+  ],
+  providers:[
+    ApplicantService
   ]
 })
 export class ApplicantModule { }
