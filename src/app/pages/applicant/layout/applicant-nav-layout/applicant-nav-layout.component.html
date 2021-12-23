@@ -1,8 +1,11 @@
 <div class="container-fluid nav-wrapper">
   <div class="container h-100">
-    <div class="d-flex justify-content-start align-items-center h-100">
+    <div class="d-flex justify-content-between align-items-center h-100">
       <div class="d-flex logo">
         <span>JobMeta</span>
+      </div>
+      <div *ngIf="showSearchComponent" class="d-flex flex-grow-1">
+        <applicant-search class="w-100"></applicant-search>
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'applicant-nav-layout',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./applicant-nav-layout.component.scss']
 })
 export class ApplicantNavLayoutComponent implements OnInit {
-
-  constructor() { }
+  showSearchComponent: boolean = false;
+  constructor(private router: Router) {
+    this.router.url === "/list" ? this.showSearchComponent = true : this.showSearchComponent = false;
+  }
 
   ngOnInit(): void {
   }

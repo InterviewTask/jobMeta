@@ -6,6 +6,8 @@ import { ApplicantComponent } from './applicant.component';
 import { ApplicantMasterLayoutComponent } from './layout/applicant-master-layout/applicant-master-layout.component';
 import { ApplicantNavLayoutComponent } from './layout/applicant-nav-layout/applicant-nav-layout.component';
 import { ApplicantListComponent } from './components/applicant-list/applicant-list.component';
+import { ApplicantSearchComponent } from './components/applicant-search/applicant-search.component';
+import { SharedModule } from '@job-mata/share';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { ApplicantListComponent } from './components/applicant-list/applicant-li
     ApplicantComponent,
     ApplicantMasterLayoutComponent,
     ApplicantNavLayoutComponent,
-    ApplicantListComponent
+    ApplicantListComponent,
+    ApplicantSearchComponent
   ],
   imports: [
     CommonModule,
-    ApplicantRoutingModule
+    ApplicantRoutingModule,
+    SharedModule
   ]
 })
 export class ApplicantModule { }

@@ -5,12 +5,16 @@ import { ApplicantListComponent } from './components';
 
 const routes: Routes = [
   {
-    path:'',
-    component:ApplicantComponent,
-    children:[
+    path: '',
+    component: ApplicantComponent,
+    children: [
       {
-        path:'',
-        component:ApplicantListComponent
+        path: '',
+        redirectTo: 'list'
+      },
+      {
+        path: 'list',
+        component: ApplicantListComponent
       }
     ]
   }
