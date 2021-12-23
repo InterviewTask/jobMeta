@@ -1,6 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'applicant-nav-layout',
@@ -9,8 +9,14 @@ import { Router } from '@angular/router';
 })
 export class ApplicantNavLayoutComponent implements OnInit {
   showSearchComponent: boolean = false;
-  constructor(private router: Router) {
-    this.router.url === "/list" ? this.showSearchComponent = true : this.showSearchComponent = false;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    router.events.subscribe(
+      (event: any) => {
+        if (event instanceof NavigationEnd) {
+          this.router.url === "/applicant/list" ? this.showSearchComponent = true : this.showSearchComponent = false;
+        }
+      }
+    );
   }
 
   ngOnInit(): void {
