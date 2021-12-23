@@ -1,0 +1,19 @@
+<nav  aria-label="...">
+  <ul class="pagination">
+    <li class="page-item">
+      <span (click)="changePage(1)"  class="page-link">First</span>
+    </li>
+    <li *ngIf="pagination.prevPage" class="page-item">
+      <a class="page-link" (click)="changePage(pagination.prevPage)" [routerLink]="">{{ pagination.prevPage }}</a>
+    </li>
+    <li *ngIf="pagination.curPage" class="page-item active">
+      <span class="page-link"> {{ pagination.curPage }}</span>
+    </li>
+    <li *ngIf="pagination.nextPage" class="page-item">
+      <a class="page-link"  (click)="changePage(pagination.nextPage)" [routerLink]="">{{ pagination.nextPage }}</a>
+    </li>
+    <li   class="page-item">
+      <a class="page-link" (click)="changePage(pagination.nextPage)" [routerLink]="">Next</a>
+    </li>
+  </ul>
+</nav>

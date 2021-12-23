@@ -9,6 +9,7 @@ import { SharedModule } from '@job-mata/share';
 import { ApplicantListComponent, ApplicantNewComponent, ApplicantSearchComponent } from './components';
 import { ApplicantListItemComponent } from './components/applicant-list-item/applicant-list-item.component';
 import { ApplicantService } from './services';
+import { ApplicantListPaginationComponent } from './components/applicant-list-pagination/applicant-list-pagination.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ApplicantService } from './services';
     ApplicantListComponent,
     ApplicantSearchComponent,
     ApplicantNewComponent,
-    ApplicantListItemComponent
+    ApplicantListItemComponent,
+    ApplicantListPaginationComponent
   ],
   imports: [
     CommonModule,

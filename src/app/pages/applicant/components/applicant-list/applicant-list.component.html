@@ -1,24 +1,32 @@
 <div class="applicant-list">
   <div class="application-list--table">
+    <!-- TABLE HEADER -->
+    <div class="table-header d-flex justify-content-between align-items-center">
+      <div class="d-flex item">
+        <span>Name(email)</span>
+      </div>
+      <div class="d-flex item">
+        <span>Name(email)</span>
+      </div>
+      <div class="d-flex item">
+        <span>Name(email)</span>
+      </div>
+      <div class="d-flex item">
+        <span>Name(email)</span>
+      </div>
+    </div>
+    <!-- TABLE CONTANT -->
+    <div class="table-content">
+
+    </div>
     <!-- PAGINATION -->
-    <nav class="d-flex" aria-label="...">
-      <ul class="pagination m-auto">
-        <li class="page-item">
-          <span class="page-link">First</span>
-        </li>
-        <li *ngIf="pagination.prevPage" class="page-item">
-          <a class="page-link" href="#">{{ pagination.prevPage }}</a>
-        </li>
-        <li *ngIf="pagination.curPage" class="page-item active">
-          <span class="page-link"> {{ pagination.curPage }}</span>
-        </li>
-        <li *ngIf="pagination.nextPage" class="page-item">
-          <a class="page-link" href="#">{{ pagination.nextPage }}</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="d-flex">
+      <applicant-list-pagination
+        class="m-auto"
+        *ngIf="applicantList"
+        (paginate)="changePage($event)"
+        [applicantList]="applicantList"
+      ></applicant-list-pagination>
+    </div>
   </div>
 </div>

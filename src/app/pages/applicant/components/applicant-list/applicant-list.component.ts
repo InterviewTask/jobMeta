@@ -9,12 +9,7 @@ import { IPagination } from '../../model';
   styleUrls: ['./applicant-list.component.scss']
 })
 export class ApplicantListComponent implements OnInit {
-  pagination: IPagination={
-    curPage:null,
-    nextPage:null,
-    pageTotal:null,
-    prevPage:null
-  };
+applicantList!:IApplicantList;
   constructor(private applicantService: ApplicantService) { }
 
   ngOnInit(): void {
@@ -24,14 +19,11 @@ export class ApplicantListComponent implements OnInit {
   getData() {
     this.applicantService.applicantList().subscribe(
       (res: IApplicantList) => {
-         this.pagination.curPage = res.curPage;
-        this.pagination.nextPage = res.nextPage;
-        this.pagination.pageTotal = res.pageTotal;
-        this.pagination.prevPage = res.prevPage;
-        console.log("LOOOGG: ",this.pagination);
-        console.log("RESSSS: ",res);
-
+        this.applicantList=res;
       })
   }
+  changePage(page:number){
+    console.log("Page: ",page);
 
+  }
 }

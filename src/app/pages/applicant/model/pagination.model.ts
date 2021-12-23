@@ -1,6 +1,6 @@
 export interface IPagination {
-  curPage: number|null;
-  nextPage: number|null;
-  pageTotal: number|null;
-  prevPage: number|null;
+  curPage: number|undefined;
+  nextPage: number|undefined;
+  pageTotal: number|undefined;
+  prevPage: number|undefined;
 }
