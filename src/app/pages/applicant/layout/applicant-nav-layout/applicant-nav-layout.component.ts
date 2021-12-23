@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-applicant-nav-layout',
+  selector: 'applicant-nav-layout',
   templateUrl: './applicant-nav-layout.component.html',
   styleUrls: ['./applicant-nav-layout.component.scss']
 })
