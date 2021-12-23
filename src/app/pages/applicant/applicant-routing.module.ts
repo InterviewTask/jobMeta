@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicantComponent } from './applicant.component';
-import { ApplicantListComponent } from './components';
+import { ApplicantListComponent, ApplicantNewComponent } from './components';
 
 const routes: Routes = [
   {
@@ -15,6 +15,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: ApplicantListComponent
+      },
+      {
+        path: 'new',
+        component: ApplicantNewComponent
       }
     ]
   }
