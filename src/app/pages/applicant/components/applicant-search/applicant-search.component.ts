@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'applicant-search',
@@ -12,9 +13,15 @@ export class ApplicantSearchComponent implements OnInit {
     { id: 3, name: 'Opel' },
     { id: 4, name: 'Audi' },
 ];
-  constructor() { }
+  constructor(
+    private router:Router,
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(path:string):void{
+    this.router.navigate([path])
   }
 
 }
