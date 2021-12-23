@@ -3,3 +3,9 @@
 --------------------------------*/
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "./var";
+@import "./fonts";
+
+*{
+  font-family: Montserrat;
+  color: var(--text-color);
+}
