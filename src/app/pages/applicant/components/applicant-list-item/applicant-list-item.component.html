@@ -44,7 +44,7 @@
   </div>
   <div class="col item m-3">
     <div class="d-grid gap-2">
-      <button type="button" class="btn btn-primary">Remove</button>
+      <button type="button" (click)="deleteItem()" class="btn btn-primary">Remove</button>
       <button *ngIf="applicant?.resume" type="button" class="btn btn-primary">
         <a
         class="a-btn"

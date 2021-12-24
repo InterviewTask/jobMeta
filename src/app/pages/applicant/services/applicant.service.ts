@@ -35,5 +35,11 @@ export class ApplicantService {
       ("application", model);
 
   }
+  deleteApplicant(id?: number): Observable<any> {
+    return this.apiService.delete<any>
+      ("application/"+id);
+
+  }
+
 
 }

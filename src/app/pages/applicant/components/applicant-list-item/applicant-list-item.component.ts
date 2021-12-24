@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ApplicantService } from './../../services/applicant.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IApplicant } from '../../model';
 
 @Component({
@@ -9,9 +10,17 @@ import { IApplicant } from '../../model';
 export class ApplicantListItemComponent implements OnInit {
 @Input("applicant")
 applicant?:IApplicant
-  constructor() { }
+@Output('Delete') delete = new EventEmitter<string>();
+  constructor(private applicantService:ApplicantService) { }
 
   ngOnInit(): void {
   }
+
+  deleteItem(){
+    this.applicantService.deleteApplicant(this.applicant?.id).subscribe(res=>{
+      this.delete.emit("itemDeletes")
+    })
+  }
+
 
 }

@@ -65,7 +65,7 @@
     <!-- TABLE CONTANT -->
     <div class="table-content mt-4">
       <div *ngFor="let item of applicantList?.items" class="mt-2">
-        <applicant-list-item [applicant]="item"></applicant-list-item>
+        <applicant-list-item (Delete)="getData()" [applicant]="item"></applicant-list-item>
       </div>
     </div>
     <!-- PAGINATION -->
