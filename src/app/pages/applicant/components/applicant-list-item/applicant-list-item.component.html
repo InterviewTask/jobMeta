@@ -45,7 +45,13 @@
   <div class="col item m-3">
     <div class="d-grid gap-2">
       <button type="button" class="btn btn-primary">Remove</button>
-      <button type="button" class="btn btn-primary">Download</button>
+      <button *ngIf="applicant?.resume" type="button" class="btn btn-primary">
+        <a
+        class="a-btn"
+        target="_blank"
+        [href]="applicant?.resume?.url"
+       >Download</a>
+      </button>
     </div>
   </div>
 </div>
