@@ -20,6 +20,8 @@ applicantList!:IApplicantList;
     this.applicantService.applicantList().subscribe(
       (res: IApplicantList) => {
         this.applicantList=res;
+        console.log("LIST: ",res);
+
       })
   }
   changePage(page:number){

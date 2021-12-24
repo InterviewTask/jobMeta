@@ -1,3 +1,52 @@
-<div class="applicant-list-item">
+<!-- <div
+  class="applicant-list-item d-flex justify-content-between align-items-start"
+>
+  <div class="d-flex item m-3">
+    <span>{{ applicant?.name }}</span>
+  </div>
+  <div class="d-flex item m-3">
+    <span>{{ applicant?.phone }}</span>
+  </div>
+  <div class="d-flex item m-3">
+    <span>{{ applicant?._job?.title }}</span>
+  </div>
+  <div class="d-flex item m-3">
+    <div class="d-grid gap-2">
+      <span>{{ applicant?.status }}</span>
+      <span class="small">{{ applicant?.created_at | timeago: "live" }}</span>
+    </div>
+  </div>
+  <div class="d-flex item m-3">
+    <div class="d-grid gap-2">
+      <button type="button" class="btn btn-primary">Remove</button>
+      <button type="button" class="btn btn-primary">Download</button>
+    </div>
+  </div>
+</div> -->
 
+<div
+  class="applicant-list-item row align-items-start"
+>
+  <div class="col item m-3">
+    <span>{{ applicant?.name }}</span>
+  </div>
+  <div class="col item m-3">
+    <span>{{ applicant?.phone }}</span>
+  </div>
+  <div class="col-4 item m-3">
+    <span>{{ applicant?._job?.title }}</span>
+  </div>
+  <div class="col item m-3">
+    <div class="d-grid gap-2">
+      <span>{{ applicant?.status }}</span>
+      <span class="small">{{ applicant?.created_at | timeago: "live" }}</span>
+    </div>
+  </div>
+  <div class="col item m-3">
+    <div class="d-grid gap-2">
+      <button type="button" class="btn btn-primary">Remove</button>
+      <button type="button" class="btn btn-primary">Download</button>
+    </div>
+  </div>
 </div>
+

@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IApplicant } from '../../model';
 
 @Component({
-  selector: 'app-applicant-list-item',
+  selector: 'applicant-list-item',
   templateUrl: './applicant-list-item.component.html',
   styleUrls: ['./applicant-list-item.component.scss']
 })
 export class ApplicantListItemComponent implements OnInit {
-
+@Input("applicant")
+applicant?:IApplicant
   constructor() { }
 
   ngOnInit(): void {
