@@ -1,3 +1,123 @@
-<div class="applicant-new">
+<div class="applicant-new m-auto">
+  <div class="header mt-5 d-flex align-items-center">
+    <div class="small">new</div>
+    <div class="content">Application</div>
+  </div>
 
+  <div class="form">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <div class="row mt-4">
+        <div class="col">
+          <input
+            type="text"
+            formControlName="name"
+            [className]="
+              form.get('name')?.touched || submited
+                ? form.get('name')?.invalid
+                  ? 'is-invalid form-control'
+                  : ' form-control'
+                : 'form-control'
+            "
+            placeholder="Full Name * "
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            formControlName="email"
+            [className]="
+              form.get('email')?.touched || submited
+                ? form.get('email')?.invalid
+                  ? 'is-invalid form-control'
+                  : ' form-control'
+                : 'form-control'
+            "
+            placeholder="Email *"
+          />
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <input
+            type="text"
+            formControlName="phone"
+            class="form-control"
+            placeholder="Phone *"
+            [className]="
+              form.get('phone')?.touched || submited
+                ? form.get('phone')?.invalid
+                  ? 'is-invalid form-control'
+                  : ' form-control'
+                : 'form-control'
+            "
+          />
+        </div>
+        <div class="col">
+          <ng-select
+            [items]="status"
+            bindLabel="title"
+            placeholder="Status"
+            bindValue="id"
+            formControlName="status"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col">
+          <ng-select
+            [items]="jobs"
+            bindLabel="title"
+            placeholder="jobs"
+            bindValue="id"
+            formControlName="job_id"
+          >
+          </ng-select>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="m-auto col">
+          <div
+            (click)="uploader.click()"
+            class="
+              w-100
+              form-control
+              d-flex
+              align-items-center
+              custom-file-upload
+            "
+          >
+            <i class="bi bi-link-45deg"></i>
+            <span class="m-2 fc-form-control small">{{ fileName }}</span>
+
+            <input
+              hidden
+              (change)="handleFileInput($event.target)"
+              type="file"
+              #uploader
+            />
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar"
+              [ngStyle]="{ width: percentDone }"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="submit-btn d-flex mt-4">
+        <button type="submit" class="m-auto btn btn-lg btn-primary small">
+          submit
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

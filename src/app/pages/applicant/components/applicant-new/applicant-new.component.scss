@@ -1,0 +1,26 @@
+.applicant-new {
+  width: 50%;
+  .header {
+    flex-direction: column;
+    .small {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .content {
+      font-size: 40px;
+      font-weight: bold;
+    }
+  }
+  .form {
+    .submit-btn {
+      button {
+        font-weight: bold;
+        padding: 16px 32px;
+      }
+    }
+
+  }
+}
+.fc-form-control{
+  color: #7e7f81;
+}

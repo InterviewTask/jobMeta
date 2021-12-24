@@ -10,7 +10,7 @@ import { ApplicantListComponent, ApplicantNewComponent, ApplicantSearchComponent
 import { ApplicantListItemComponent } from './components/applicant-list-item/applicant-list-item.component';
 import { ApplicantService } from './services';
 import { ApplicantListPaginationComponent } from './components/applicant-list-pagination/applicant-list-pagination.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ApplicantRoutingModule,
     SharedModule
   ],

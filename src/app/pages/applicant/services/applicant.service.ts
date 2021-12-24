@@ -12,10 +12,10 @@ export class ApplicantService {
     private urlParameterHandlerService: UrlParameterHandlerService) { }
 
   Param(external?: any, search?: string, jobId?: any) {
-    let param: IUrlParam = { external: JSON.stringify(external), search: search, job_id: jobId ? jobId + "" : undefined }
+    let param: IUrlParam = { external: JSON.stringify(external), search: search, job_id: jobId ? jobId + "" : undefined };
     if (!external)
-      delete param.external
-    this.urlParameterHandlerService.setUrlParam(param)
+      delete param.external;
+    this.urlParameterHandlerService.setUrlParam(param);
   }
   applicantList(): Observable<IApiResponce<IApplicant>> {
     let params = new HttpParams()
@@ -23,11 +23,17 @@ export class ApplicantService {
       .set("search", this.urlParameterHandlerService.UrlParam.search ?? '')
       .set("job_id", this.urlParameterHandlerService.UrlParam.job_id ?? '');
     return this.apiService.get<IApiResponce<IApplicant>>
-      ('application', params)
+      ('application', params);
   }
   jobList(): Observable<IApiResponce<Ijob>> {
     return this.apiService.get<IApiResponce<Ijob>>
-      ('job')
+      ('job');
+  }
+
+  createApplicant(model: IApplicant): Observable<IApplicant> {
+    return this.apiService.post<IApplicant>
+      ("application", model);
+
   }
 
 }
