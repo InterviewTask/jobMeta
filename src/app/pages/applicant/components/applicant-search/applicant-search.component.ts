@@ -1,5 +1,8 @@
+import { UrlParameterHandlerService } from '@job-mata/core';
+import { ApplicantService } from './../../services/applicant.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
+import {Ijob } from '../../model';
 
 @Component({
   selector: 'applicant-search',
@@ -7,21 +10,30 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./applicant-search.component.scss']
 })
 export class ApplicantSearchComponent implements OnInit {
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab' },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-];
+  jobs:Ijob[] = [];
+  selectedJob?:number;
+  searchText?:string="";
+
   constructor(
     private router:Router,
+    private applicantService:ApplicantService,
+    private urlParameterHandlerService:UrlParameterHandlerService
     ) { }
 
   ngOnInit(): void {
+    this.applicantService.jobList().subscribe(res=>{
+      this.jobs=res.items;
+    })
+    this.searchText=this.urlParameterHandlerService.UrlParam.search
+    this.selectedJob=this.urlParameterHandlerService.UrlParam.job_id?+this.urlParameterHandlerService.UrlParam.job_id:0
   }
 
   navigate(path:string):void{
     this.router.navigate([path])
+  }
+
+  filter(){
+     this.applicantService.Param(null,this.searchText,this.selectedJob);
   }
 
 }
