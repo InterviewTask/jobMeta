@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { ApiService } from '@job-mata/core';
@@ -9,8 +10,11 @@ export class ApplicantService {
 
   constructor(private apiService:ApiService) { }
 
-  applicantList():Observable<IApplicantList>{
+  applicantList(external? :any):Observable<IApplicantList>{
+    let params=new HttpParams()
+    .set("external",JSON.stringify(external));
+
     return this.apiService.get<IApplicantList>
-    ('application')
+    ('application',params)
   }
 }

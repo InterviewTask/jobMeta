@@ -1,5 +1,5 @@
 import { IApplicantList } from './../../model/applicant-list.model';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { IPagination } from '../../model';
 
 @Component({
@@ -7,7 +7,7 @@ import { IPagination } from '../../model';
   templateUrl: './applicant-list-pagination.component.html',
   styleUrls: ['./applicant-list-pagination.component.scss']
 })
-export class ApplicantListPaginationComponent implements OnInit {
+export class ApplicantListPaginationComponent implements OnChanges {
   @Input('applicantList')
   applicantList?: IApplicantList;
   @Output('paginate') paginate = new EventEmitter<number>();
@@ -17,14 +17,16 @@ export class ApplicantListPaginationComponent implements OnInit {
     pageTotal: undefined,
     prevPage: undefined
   };
-  constructor() { }
-
-  ngOnInit(): void {
-    this.pagination.curPage = this.applicantList?.curPage
-    this.pagination.nextPage = this.applicantList?.nextPage
-    this.pagination.prevPage = this.applicantList?.prevPage
-    this.pagination.pageTotal = this.applicantList?.pageTotal
-  }
+  constructor() {
+   }
+   ngOnInit(): void {
+   }
+   ngOnChanges() {
+     this.pagination.curPage = this.applicantList?.curPage
+     this.pagination.nextPage = this.applicantList?.nextPage
+     this.pagination.prevPage = this.applicantList?.prevPage
+     this.pagination.pageTotal = this.applicantList?.pageTotal
+   }
   changePage(page: number|undefined) {
     this.paginate.emit(page)
   }

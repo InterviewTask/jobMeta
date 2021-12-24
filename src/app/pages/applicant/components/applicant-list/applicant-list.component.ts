@@ -16,8 +16,8 @@ applicantList!:IApplicantList;
     this.getData();
   }
 
-  getData() {
-    this.applicantService.applicantList().subscribe(
+  getData(external?:any) {
+    this.applicantService.applicantList(external).subscribe(
       (res: IApplicantList) => {
         this.applicantList=res;
         console.log("LIST: ",res);
@@ -26,6 +26,10 @@ applicantList!:IApplicantList;
   }
   changePage(page:number){
     console.log("Page: ",page);
+    let external={
+        "page":page,
+    }
+    this.getData(external)
 
   }
 }
