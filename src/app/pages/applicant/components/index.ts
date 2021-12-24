@@ -1,3 +1,6 @@
 export * from "./applicant-list/applicant-list.component"
 export * from "./applicant-new/applicant-new.component"
 export * from "./applicant-search/applicant-search.component"
+export * from "./applicant-list-item/applicant-list-item.component"
+export * from "./applicant-list-pagination/applicant-list-pagination.component"
+export * from "./applicant-job/applicant-job.component"

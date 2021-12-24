@@ -11,6 +11,7 @@ import { ApplicantListItemComponent } from './components/applicant-list-item/app
 import { ApplicantService } from './services';
 import { ApplicantListPaginationComponent } from './components/applicant-list-pagination/applicant-list-pagination.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicantJobComponent } from './components/applicant-job/applicant-job.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ApplicantSearchComponent,
     ApplicantNewComponent,
     ApplicantListItemComponent,
-    ApplicantListPaginationComponent
+    ApplicantListPaginationComponent,
+    ApplicantJobComponent
   ],
   imports: [
     CommonModule,
