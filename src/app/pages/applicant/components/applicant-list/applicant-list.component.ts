@@ -1,7 +1,7 @@
 import { IApplicantList } from './../../model/applicant-list.model';
 import { Component, OnInit } from '@angular/core';
 import { ApplicantService } from '../../services';
-import { IPagination } from '../../model';
+import { IExternal, IPagination } from '../../model';
 
 @Component({
   selector: 'app-applicant-list',
@@ -9,27 +9,41 @@ import { IPagination } from '../../model';
   styleUrls: ['./applicant-list.component.scss']
 })
 export class ApplicantListComponent implements OnInit {
-applicantList!:IApplicantList;
+  applicantList!: IApplicantList;
+  NameSort:boolean=false;
+  PhoneSort:boolean=false;
+  JobSort:boolean=false;
+  StatusSort:boolean=false;
+  external :IExternal= {
+    page: 1,
+    sort: []
+  }
   constructor(private applicantService: ApplicantService) { }
 
   ngOnInit(): void {
     this.getData();
   }
 
-  getData(external?:any) {
-    this.applicantService.applicantList(external).subscribe(
+  getData() {
+    this.applicantService.applicantList().subscribe(
       (res: IApplicantList) => {
-        this.applicantList=res;
-        console.log("LIST: ",res);
-
+        this.applicantList = res;
+        console.log("LIST: ", res);
       })
   }
-  changePage(page:number){
-    console.log("Page: ",page);
-    let external={
-        "page":page,
-    }
-    this.getData(external)
+  sortFild(fild:string,type:string){
+    console.log("FILD: ",fild,"TYPE: ",type);
+    var index =  this.external.sort.findIndex(x => x.sortBy==fild);
+    index === -1 ? this.external.sort.push({orderBy:type,sortBy:fild}) : this.external.sort[index].orderBy=type;
+
+    this.applicantService.Param(this.external)
+    this.getData();
+  }
+  changePage(page: number) {
+    console.log("Page: ", page);
+    this.external.page=page;
+    this.applicantService.Param(this.external)
+    this.getData()
 
   }
 }
