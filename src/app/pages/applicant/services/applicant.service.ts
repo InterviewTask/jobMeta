@@ -1,8 +1,9 @@
+import { IJobCategory } from './../model/job.model';
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService, IApiResponce, IUrlParam, UrlParameterHandlerService } from '@job-mata/core';
 import { Observable } from 'rxjs';
-import { IApplicant, Ijob } from '../model';
+import { IApplicant, ICategory, Ijob } from '../model';
 
 @Injectable()
 export class ApplicantService {
@@ -35,10 +36,20 @@ export class ApplicantService {
       ("application", model);
 
   }
+  createJob(model: Ijob): Observable<Ijob> {
+    return this.apiService.post<Ijob>
+      ("job", model);
+
+  }
   deleteApplicant(id?: number): Observable<any> {
     return this.apiService.delete<any>
       ("application/"+id);
 
+  }
+
+  categorylist(): Observable<ICategory[]> {
+    return this.apiService.get<ICategory[]>
+      ('category');
   }
 
 

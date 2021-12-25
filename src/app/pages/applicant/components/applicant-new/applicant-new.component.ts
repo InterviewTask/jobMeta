@@ -65,10 +65,13 @@ export class ApplicantNewComponent implements OnInit {
     this.submited=true;
     if(this.form.invalid)return
     this.applicantService.createApplicant(this.form.value).subscribe(res=>{
-      this.router.navigate(["/"]);
+     this.navigate("/")
     })
     // console.log(this.form.value);
+  }
 
+  navigate(path:string){
+    this.router.navigate([path]);
   }
 
 }

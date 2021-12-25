@@ -1,1 +1,93 @@
-<p>applicant-job works!</p>
+<div class="applicant-new m-auto">
+  <div class="header mt-5 d-flex align-items-center">
+    <div class="small">new</div>
+    <div class="content">Job</div>
+  </div>
+
+  <div class="form">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <div class="row mt-4">
+        <div class="col">
+          <input
+            type="text"
+            formControlName="title"
+            [className]="
+              form.get('title')?.touched || submited
+                ? form.get('title')?.invalid
+                  ? 'is-invalid form-control'
+                  : ' form-control'
+                : 'form-control'
+            "
+            placeholder="Title * "
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            formControlName="type"
+            [className]="
+              form.get('type')?.touched || submited
+                ? form.get('type')?.invalid
+                  ? 'is-invalid form-control'
+                  : ' form-control'
+                : 'form-control'
+            "
+            placeholder="Type *"
+          />
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <input
+            type="text"
+            readonly
+            formControlName="location"
+            class="form-control"
+            placeholder="Location *"
+            [className]="
+              form.get('location')?.touched || submited
+                ? form.get('location')?.invalid
+                  ? 'is-invalid form-control'
+                  : ' form-control'
+                : 'form-control'
+            "
+          />
+        </div>
+        <div class="col">
+          <ng-select
+            [items]="categories"
+            bindLabel="category"
+            placeholder="Category"
+            bindValue="id"
+            formControlName="category"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <div class="d-grid gap-2">
+            <button type="button" class="map-btn btn btn-primary">
+              Choose location from Map
+            </button>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <label class="job-dec--lable" for="description">Description</label>
+          <textarea placeholder="Add job description here please" class="mt-3 form-control" id="description" rows="8"></textarea>
+        </div>
+
+      </div>
+      <span class="small">We'll never share your email with anyone else.</span>
+
+      <div class="mt-1 submit-btn d-flex mt-4">
+        <button type="submit" class="m-auto btn btn-lg btn-primary small">
+          submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

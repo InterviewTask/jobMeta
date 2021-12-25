@@ -6,3 +6,4 @@ export * from "./meta.model";
 export * from "./resume.model";
 export * from "./pagination.model"
 export * from "./external.model"
+export * from "./category.model"
